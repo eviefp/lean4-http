@@ -4,7 +4,7 @@
  [{"git":
    {"url": "https://github.com/leanprover/std4",
     "subDir?": null,
-    "rev": "e403f680f0beb8610c29e6f799132e8be880554e",
+    "rev": "dfc54742cb215f7d8304ae007512c7b239731336",
     "opts": {},
     "name": "std",
     "inputRev?": "main",
@@ -12,9 +12,17 @@
   {"git":
    {"url": "https://github.com/eviefp/socket.lean",
     "subDir?": null,
-    "rev": "d367858e02d79615fa5d723dafdb5fe01e8bb7f8",
+    "rev": "57c783074c607401c4aac115ed510a5b6e4a7561",
     "opts": {},
     "name": "socket",
+    "inputRev?": "main",
+    "inherited": false}},
+  {"git":
+   {"url": "https://github.com/fgdorais/lean4-parser",
+    "subDir?": null,
+    "rev": "2d13cd2da402f913a3c3a09549a8c0a58b47939e",
+    "opts": {},
+    "name": "Parser",
     "inputRev?": "main",
     "inherited": false}},
   {"git":
@@ -24,5 +32,13 @@
     "opts": {},
     "name": "alloy",
     "inputRev?": "master",
+    "inherited": true}},
+  {"git":
+   {"url": "https://github.com/fgdorais/lean4-unicode-basic",
+    "subDir?": null,
+    "rev": "280d75fdfe7be8eb337be7f1bf8479b4aac09f71",
+    "opts": {},
+    "name": "UnicodeBasic",
+    "inputRev?": "main",
     "inherited": true}}],
  "name": "todo"}

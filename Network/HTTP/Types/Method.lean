@@ -1,20 +1,20 @@
 namespace Network.HTTP.Types
 
 /-- HTTP standard methods as defined by RFC 2616. -/
-inductive Method : String -> Type where
-  | Get     : Method "GET"
-  | Post    : Method "POST"
-  | Head    : Method "HEAD"
-  | Put     : Method "PUT"
-  | Delete  : Method "DELETE"
-  | Trace   : Method "TRACE"
-  | Connect : Method "CONNECT"
-  | Options : Method "OPTIONS"
+inductive Method  where
+  | Get
+  | Post
+  | Head
+  | Put
+  | Delete
+  | Trace
+  | Connect
+  | Options
   /-- as defined by RFC 5789 -/
-  | Patch   : Method "PATCH"
+  | Patch
 
-def Method.fromString (s: String) : Option (Method s) :=
-  match s with
+def Method.fromString (rawMethod: String) : Option Method :=
+  match rawMethod with
   | "GET" => some Get
   | "POST" => some Post
   | "HEAD" => some Head
@@ -26,4 +26,14 @@ def Method.fromString (s: String) : Option (Method s) :=
   | "PATCH" => some Patch
   | _ => none
 
-def Method.toString (_ : Method s) : String := s
+def Method.toString (method: Method) : String :=
+  match method with
+  | Get => "GET"
+  | Post => "POST"
+  | Head => "HEAD"
+  | Put => "PUT"
+  | Delete => "DELETE"
+  | Trace => "TRACE"
+  | Connect => "CONNECT"
+  | Options => "OPTIONS"
+  | Patch => "PATCH"

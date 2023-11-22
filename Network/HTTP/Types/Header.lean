@@ -2,72 +2,72 @@ namespace Network.HTTP.Types
 
 /-- HTTP Header names according to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
 -/
-inductive Header : String -> Type where
-  | Accept             : Header "Accept"
-  | AcceptCharset      : Header "Accept-Charset"
-  | AcceptEncoding     : Header "Accept-Encoding"
-  | AcceptLanguage     : Header "Accept-Language"
-  | AcceptRanges       : Header "Accept-Ranges"
-  | Age                : Header "Age"
-  | Allow              : Header "Allow"
-  | Authorization      : Header "Authorization"
-  | CacheControl       : Header "Cache-Control"
-  | Connection         : Header "Connection"
-  | ContentEncoding    : Header "Content-Encoding"
-  | ContentLanguage    : Header "Content-Language"
-  | ContentLength      : Header "Content-Length"
-  | ContentLocation    : Header "Content-Location"
-  | ContentMD          : Header "Content-MD5"
-  | ContentRange       : Header "Content-Range"
-  | ContentType        : Header "Content-Type"
-  | Date               : Header "Date"
-  | ETag               : Header "ETag"
-  | Expect             : Header "Expect"
-  | Expires            : Header "Expires"
-  | From               : Header "From"
-  | Host               : Header "Host"
-  | IfMatch            : Header "If-Match"
-  | IfModifiedSince    : Header "If-Modified-Since"
-  | IfNoneMatch        : Header "If-None-Match"
-  | IfRange            : Header "If-Range"
-  | IfUnmodifiedSince  : Header "If-Unmodified-Since"
-  | LastModified       : Header "Last-Modified"
-  | Location           : Header "Location"
-  | MaxForwards        : Header "Max-Forwards"
-  | Pragma             : Header "Pragma"
-  | ProxyAuthenticate  : Header "Proxy-Authenticate"
-  | ProxyAuthorization : Header "Proxy-Authorization"
-  | Range              : Header "Range"
-  | Referer            : Header "Referer"
-  | RetryAfter         : Header "Retry-After"
-  | Server             : Header "Server"
-  | TE                 : Header "TE"
-  | Trailer            : Header "Trailer"
-  | TransferEncoding   : Header "Transfer-Encoding"
-  | Upgrade            : Header "Upgrade"
-  | UserAgent          : Header "User-Agent"
-  | Vary               : Header "Vary"
-  | Via                : Header "Via"
-  | WWWAuthenticate    : Header "WWW-Authenticate"
-  | Warning            : Header "Warning"
+inductive Header where
+  | Accept
+  | AcceptCharset
+  | AcceptEncoding
+  | AcceptLanguage
+  | AcceptRanges
+  | Age
+  | Allow
+  | Authorization
+  | CacheControl
+  | Connection
+  | ContentEncoding
+  | ContentLanguage
+  | ContentLength
+  | ContentLocation
+  | ContentMD
+  | ContentRange
+  | ContentType
+  | Date
+  | ETag
+  | Expect
+  | Expires
+  | From
+  | Host
+  | IfMatch
+  | IfModifiedSince
+  | IfNoneMatch
+  | IfRange
+  | IfUnmodifiedSince
+  | LastModified
+  | Location
+  | MaxForwards
+  | Pragma
+  | ProxyAuthenticate
+  | ProxyAuthorization
+  | Range
+  | Referer
+  | RetryAfter
+  | Server
+  | TE
+  | Trailer
+  | TransferEncoding
+  | Upgrade
+  | UserAgent
+  | Vary
+  | Via
+  | WWWAuthenticate
+  | Warning
 
 /-- HTTP Header names according to http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html -/
-  | ContentDisposition : Header "Content-Disposition"
-  | MIMEVersion        : Header "MIME-Version"
+  | ContentDisposition
+  | MIMEVersion
 
 /- HTTP Header names according to https://tools.ietf.org/html/rfc6265#section-4 -/
-  | Cookie             : Header "Cookie"
-  | SetCookie          : Header "Set-Cookie"
+  | Cookie
+  | SetCookie
 
 /-- HTTP Header names according to https://tools.ietf.org/html/rfc6454 -/
-  | Origin             : Header "Origin"
+  | Origin
 
 /-- HTTP Header names according to https://tools.ietf.org/html/rfc7240 -/
-  | Prefer             : Header "Prefer"
-  | PreferenceApplied  : Header "Preference-Applied"
+  | Prefer
+  | PreferenceApplied
 
-def Header.fromString (s: String) : Option (Header s) :=
-  match s with
+def Header.fromString (rawHeader: String) : Option Header :=
+  match rawHeader with
   | "Accept" => some Header.Accept
   | "Accept-Charset" => some Header.AcceptCharset
   | "Accept-Encoding" => some Header.AcceptEncoding
@@ -124,6 +124,61 @@ def Header.fromString (s: String) : Option (Header s) :=
   | "Preference-Applied" => some Header.PreferenceApplied
   | _ => none
 
-def Header.toString (_: Header s) : String := s
+def Header.toString (header: Header) : String :=
+  match header with
+  | Header.Accept => "Accept"
+  | Header.AcceptCharset => "Accept-Charset"
+  | Header.AcceptEncoding => "Accept-Encoding"
+  | Header.AcceptLanguage => "Accept-Language"
+  | Header.AcceptRanges => "Accept-Ranges"
+  | Header.Age => "Age"
+  | Header.Allow => "Allow"
+  | Header.Authorization => "Authorization"
+  | Header.CacheControl => "Cache-Control"
+  | Header.Connection => "Connection"
+  | Header.ContentEncoding => "Content-Encoding"
+  | Header.ContentLanguage => "Content-Language"
+  | Header.ContentLength => "Content-Length"
+  | Header.ContentLocation => "Content-Location"
+  | Header.ContentMD => "Content-MD5"
+  | Header.ContentRange => "Content-Range"
+  | Header.ContentType => "Content-Type"
+  | Header.Date => "Date"
+  | Header.ETag => "ETag"
+  | Header.Expect => "Expect"
+  | Header.Expires => "Expires"
+  | Header.From => "From"
+  | Header.Host => "Host"
+  | Header.IfMatch => "If-Match"
+  | Header.IfModifiedSince => "If-Modified-Since"
+  | Header.IfNoneMatch => "If-None-Match"
+  | Header.IfRange => "If-Range"
+  | Header.IfUnmodifiedSince => "If-Unmodified-Since"
+  | Header.LastModified => "Last-Modified"
+  | Header.Location => "Location"
+  | Header.MaxForwards => "Max-Forwards"
+  | Header.Pragma => "Pragma"
+  | Header.ProxyAuthenticate => "Proxy-Authenticate"
+  | Header.ProxyAuthorization => "Proxy-Authorization"
+  | Header.Range => "Range"
+  | Header.Referer => "Referer"
+  | Header.RetryAfter => "Retry-After"
+  | Header.Server => "Server"
+  | Header.TE => "TE"
+  | Header.Trailer => "Trailer"
+  | Header.TransferEncoding => "Transfer-Encoding"
+  | Header.Upgrade => "Upgrade"
+  | Header.UserAgent => "User-Agent"
+  | Header.Vary => "Vary"
+  | Header.Via => "Via"
+  | Header.WWWAuthenticate => "WWW-Authenticate"
+  | Header.Warning => "Warning"
+  | Header.ContentDisposition => "Content-Disposition"
+  | Header.MIMEVersion => "MIME-Version"
+  | Header.Cookie => "Cookie"
+  | Header.SetCookie => "Set-Cookie"
+  | Header.Origin => "Origin"
+  | Header.Prefer => "Prefer"
+  | Header.PreferenceApplied => "Preference-Applied"
 
 -- TODO: ByteRanges
