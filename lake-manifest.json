@@ -1,0 +1,28 @@
+{"version": 6,
+ "packagesDir": "lake-packages",
+ "packages":
+ [{"git":
+   {"url": "https://github.com/leanprover/std4",
+    "subDir?": null,
+    "rev": "e403f680f0beb8610c29e6f799132e8be880554e",
+    "opts": {},
+    "name": "std",
+    "inputRev?": "main",
+    "inherited": false}},
+  {"git":
+   {"url": "https://github.com/eviefp/socket.lean",
+    "subDir?": null,
+    "rev": "d367858e02d79615fa5d723dafdb5fe01e8bb7f8",
+    "opts": {},
+    "name": "socket",
+    "inputRev?": "main",
+    "inherited": false}},
+  {"git":
+   {"url": "https://github.com/tydeu/lean4-alloy/",
+    "subDir?": null,
+    "rev": "9abdb9b2e3ac6a7b7cd9a04656d5385f4e265fa9",
+    "opts": {},
+    "name": "alloy",
+    "inputRev?": "master",
+    "inherited": true}}],
+ "name": "todo"}
