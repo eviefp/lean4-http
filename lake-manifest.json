@@ -10,9 +10,9 @@
     "inputRev?": "main",
     "inherited": false}},
   {"git":
-   {"url": "https://github.com/eviefp/socket.lean",
+   {"url": "https://github.com/hargoniX/socket.lean",
     "subDir?": null,
-    "rev": "57c783074c607401c4aac115ed510a5b6e4a7561",
+    "rev": "a37a9d6c9a0bee2112b888afb237515759100a39",
     "opts": {},
     "name": "socket",
     "inputRev?": "main",
