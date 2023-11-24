@@ -2,14 +2,6 @@
  "packagesDir": "lake-packages",
  "packages":
  [{"git":
-   {"url": "https://github.com/leanprover/std4",
-    "subDir?": null,
-    "rev": "dfc54742cb215f7d8304ae007512c7b239731336",
-    "opts": {},
-    "name": "std",
-    "inputRev?": "main",
-    "inherited": false}},
-  {"git":
    {"url": "https://github.com/hargoniX/socket.lean",
     "subDir?": null,
     "rev": "a37a9d6c9a0bee2112b888afb237515759100a39",
@@ -32,6 +24,14 @@
     "opts": {},
     "name": "alloy",
     "inputRev?": "master",
+    "inherited": true}},
+  {"git":
+   {"url": "https://github.com/leanprover/std4",
+    "subDir?": null,
+    "rev": "e403f680f0beb8610c29e6f799132e8be880554e",
+    "opts": {},
+    "name": "std",
+    "inputRev?": "main",
     "inherited": true}},
   {"git":
    {"url": "https://github.com/fgdorais/lean4-unicode-basic",
